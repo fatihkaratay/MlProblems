@@ -30,11 +30,15 @@ def get_statistics(input_list):
         middle_number_2 = sorted_list[middle_index + 1]
         median = (middle_number_1 + middle_number_2) / 2
 
+    # mode
+    number_counts = {x: sorted_list.count(x) for x in set(sorted_list)}
+    mode = max(number_counts.keys(), key = lambda unique_number: number_counts[unique_number])
+
 
     return {
         "mean": mean,
         "median": median,
-        "mode": 0,
+        "mode": mode,
         "sample_variance": 0,
         "sample_standard_deviation": 0,
         "mean_confidence_interval": [0, 0]
