@@ -19,13 +19,21 @@ def get_statistics(input_list):
     sorted_list = sorted(input_list)
     input_len = len(input_list)
 
+    # mean
     mean = sum(sorted_list) / input_len
 
+    # median
+    middle_index = (len(sorted_list) - 1) // 2
+    median = sorted_list[middle_index]
+    if input_len % 2 == 0 :
+        middle_number_1 = sorted_list[middle_index]
+        middle_number_2 = sorted_list[middle_index + 1]
+        median = (middle_number_1 + middle_number_2) / 2
 
 
     return {
         "mean": mean,
-        "median": 0,
+        "median": median,
         "mode": 0,
         "sample_variance": 0,
         "sample_standard_deviation": 0,
