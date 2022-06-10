@@ -34,13 +34,19 @@ def get_statistics(input_list):
     number_counts = {x: sorted_list.count(x) for x in set(sorted_list)}
     mode = max(number_counts.keys(), key = lambda unique_number: number_counts[unique_number])
 
+    #sample variance
+    sample_variance = sum([(number - mean) ** 2 / (input_len - 1) for number in sorted_list])
+
+    # sample_standard_deviation
+    sample_standard_deviation = sample_variance ** 0.5
+
 
     return {
         "mean": mean,
         "median": median,
         "mode": mode,
-        "sample_variance": 0,
-        "sample_standard_deviation": 0,
+        "sample_variance": sample_variance,
+        "sample_standard_deviation": sample_standard_deviation,
         "mean_confidence_interval": [0, 0]
     }
 
