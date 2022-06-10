@@ -40,6 +40,11 @@ def get_statistics(input_list):
     # sample_standard_deviation
     sample_standard_deviation = sample_variance ** 0.5
 
+    # mean_confidence_interval
+    mean_std_err = sample_standard_deviation / input_len ** 0.5
+    z_score_std_err = 1.96 * mean_std_err
+    mean_confidence_interval = [mean - z_score_std_err, mean + z_score_std_err]
+
 
     return {
         "mean": mean,
@@ -47,7 +52,7 @@ def get_statistics(input_list):
         "mode": mode,
         "sample_variance": sample_variance,
         "sample_standard_deviation": sample_standard_deviation,
-        "mean_confidence_interval": [0, 0]
+        "mean_confidence_interval": mean_confidence_interval
     }
 
 
