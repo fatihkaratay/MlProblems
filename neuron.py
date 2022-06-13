@@ -46,4 +46,3 @@ class Neuron:
                 gradients[feature_i] = gradients[feature_i] + errors[example_i] * feature
         gradients = [gradient / len(batch) for gradient in gradients]
         return gradients
-
