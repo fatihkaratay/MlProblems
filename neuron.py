@@ -1,5 +1,4 @@
 import math
-
 import numpy as np
 
 
@@ -34,7 +33,6 @@ class Neuron:
         for i, model_input in enumerate(model_inputs):
             wTx = wTx + self.weights[i] * model_input
         return 1 / (1 + math.exp(-wTx))
-
 
     def __get_gradients(self, batch, prediction_labels):
         errors = [
